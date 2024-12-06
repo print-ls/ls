@@ -1,0 +1,148 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: blue;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+
+.headbox {
+    width: 100%;
+    flex: 0 0 8%;
+    background-color: #000913;
+    color: white;
+    text-align: center;
+    font-size: large;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+
+.bodybox {
+    width: 100%;
+    flex: 1;
+    background-image: url('./img/bbj.png');
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.region {
+    width: calc(33.33% - 20px);
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+.region1 {
+    width: calc(33.33% - 20px);
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 10px;
+    background-image: url('./img/fake.png'); /* 替换为你的背景图路径 */
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.region2 {
+    width: calc(33.33% - 20px);
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 10px;
+    background-image: url('./img/yingsuo.png');
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.region3 {
+    width: calc(33.33% - 20px);
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 10px;
+    background-image: url('./img/jbm.png');
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.region-title {
+    font-size: medium;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+
+.download-links {
+    text-align: center;
+}
+
+.download-links a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.download-links a:hover {
+    background-color: #0056b3;
+}
+
+.footbox {
+    width: 100%;
+    flex: 0 0 10%;
+    background-color: rgb(249, 250, 248);
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text {
+    text-align: left;
+}
+
+
+@media (max-width: 768px) {
+
+    .headbox,
+    .footbox {
+        flex: 0 0 15%;
+    }
+
+    .bodybox {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .region {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .video-item {
+        width: 90%;
+    }
+}
