@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算器</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .first {
+        width: 200px;
+        border: 1px solid #000;
+    }
+
+    .result {
+        height: 50px;
+        background-color: rgb(244, 61, 11);
+        line-height: 50px;
+        font-size: 24px;
+        text-align: right;
+    }
+
+    .buttons {
+        display: flex;
+    }
+
+    button {
+        flex: 1;
+        height: 40px;
+    }
+
+    .buttons>div {
+        display: flex;
+        flex: 1;
+    }
+</style>
+
+<body>
+    <div class="first">
+        <div class="result">0</div>
+        <div class="buttons">
+            <button class="AC">删除</button>
+                    <button class="operators">-</button>
+                    <button class="operators">%</button>
+                    <button class="operators">/</button>
+        </div>
+        <div class="buttons">
+            <button class="number">7</button>
+            <button class="number">8</button>
+            <button class="operators">9</button>
+            <button class="operators">*</button>
+        </div>
+        <div class="buttons">
+            <button class="number">4</button>
+            <button class="number">5</button>
+            <button class="number">6</button>
+            <button class="operators">-</button>
+        </div>
+        <div class="buttons">
+            <button class="number">1</button>
+            <button class="number">2</button>
+            <button class="number">3</button>
+            <button class="operators">+</button>
+        </div>
+        <div class="buttons">
+            <div>
+                <button class="number">0</button>
+            </div>
+            <div>
+                <button class="Dot">.</button>
+                <button class="equal">=</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let numbers = document.querySelectorAll('.number');
+        let operators = document.querySelectorAll('.operators');
+        let result = document.querySelector('.result');
+        let AC = document.querySelector('.AC');
+        let Dot = document.querySelector('.Dot');
+        let equal = document.querySelector('.equal');
+        let isDot = false;
+        let displays = "";
+        for (i = 0; i < numbers.length; i++) {
+            let number = numbers[i];
+            number.onclick = function () {
+                displays += this.innerHTML;
+                result.innerHTML = displays;
+                isDot = false;
+            }
+        }
+        for (i = 0; i < operators.length; i++) {
+            let operator = operators[i];
+            operator.onclick = function () {
+                displays += this.innerHTML;
+                result.innerHTML = displays;
+
+            }
+        }
+        AC.onclick = function () {
+            displays = "";
+            result.innerHTML = '0';
+        }
+        Dot.onclick = function () {
+            if (displays == "") {
+                displays += '0';
+                result.innerHTML = displays;
+            }
+            if (isDot) {
+                displays += '.';
+                result.innerHTML = displays;
+            }
+            isDot = true;
+        }
+        equal.onclick = function () {
+            displays = eval(displays);
+            result.innerHTML = displays;
+        }
+
+
+
+    </script>
+</body>
+
+</html>
