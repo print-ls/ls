@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>抓耄耋</title>
+    <!-- 视口设置：禁止移动端缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<a href="home.html" style="
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    z-index: 30;
+    display: block;
+    width: 90%;
+    max-width: 300px;
+    margin: auto;
+    margin-top: 20px;">🏠 返回主页</a>
+<body>
+
+<!-- 页面标题 -->
+<h1>
+    <img src="images/mao8.gif" alt="标题动画" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 10px;">
+    抓耄耋
+</h1>
+
+<!-- 设置面板 -->
+<div id="setupPanel" class="panel">
+    <h2>⏰ 设置游戏模式</h2>
+    <label>
+        <input type="checkbox" id="infiniteMode"> 无尽模式
+    </label>
+
+    <!-- 速度设置 -->
+    <div id="speedSetting" style="margin-top: 10px;">
+        <label>耄耋移动速度：</label>
+        <input type="number" id="speedInput" value="1" min="0.5" step="0.1" max="5">
+    </div>
+
+    <select id="timeSelect">
+        <option value="10">10 秒</option>
+        <option value="30" selected>30 秒</option>
+        <option value="60">60 秒</option>
+    </select>
+    <button id="startBtn">开始游戏</button>
+</div>
+ 
+<!-- 游戏区域 -->
+<div id="gameArea">
+    <div id="scoreBoard">抓住了：0</div>
+    <div id="timer">剩余时间：--s</div>
+
+    <!-- 图片容器 -->
+    <div id="imageContainer"></div>
+
+    <!-- 结算按钮 -->
+    <button id="finishGameBtn" style="display: none;">🛑 结束游戏</button>
+</div>
+
+<!-- 结束面板 -->
+<div id="endPanel" class="panel">
+    <h2>⏰ 游戏结束</h2>
+    <p id="finalScore"></p>
+    <p id="usedTime"></p>
+    <p id="rank"></p>
+    <p id="highScoreDisplay"></p>
+    <button id="endGameBtn">返回主页</button>
+    <button id="restartBtn">重新设置</button>
+</div>
+
+<!-- 音乐控制 -->
+<audio id="bgMusic" src="music/hajimi.mp3" loop></audio>
+<button id="toggleMusicBtn">🔊音乐</button>
+
+<!-- 游戏逻辑 JS -->
+<script src="game.js"></script>
+
+</body>
+</html>

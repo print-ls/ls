@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f8ff;
+    overflow-x: hidden;
+    min-width: 320px;
+    max-width: 100%;
+    padding: 10px;
+}
+
+/* 页面标题 */
+h1 {
+    margin-top: 5vw;
+    font-size: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 面板隐藏默认 */
+#setupPanel,
+#endPanel,
+#gameArea {
+    display: none;
+}
+
+/* 面板通用样式 */
+.panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(images/mao6.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 5vw;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* 动画定义 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes clickFeedback {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.6; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.clickFeedback {
+    animation: clickFeedback 0.3s ease-out;
+}
+
+/* 设置面板内容 */
+#setupPanel label {
+    display: block;
+    margin-bottom: 3vw;
+    font-size: 4vw;
+    text-align: left;
+}
+
+#setupPanel select,
+#setupPanel button,
+#setupPanel input[type="number"] {
+    font-size: 4vw;
+    margin-top: 3vw;
+    padding: 2vw;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* 分数与计时器 */
+#scoreBoard,
+#timer {
+    font-size: 4vw;
+    margin: 2vw;
+    color: green;
+}
+
+/* 游戏区域 */
+#gameArea {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+/* 可点击图像 */
+.clickImage {
+    position: absolute;
+    width: 15vw;
+    height: 15vw;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* 按钮统一风格 */
+#restartBtn,
+#endGameBtn,
+#toggleMusicBtn {
+    width: 90%;
+    max-width: 300px;
+    margin-top: 5vw;
+    padding: 3vw;
+    font-size: 4vw;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 暂停/静音状态下的样式 */
+#toggleMusicBtn.muted {
+    background-color: #6c757d; /* 灰色 - 静音状态 */
+}
+
+/* hover 效果根据当前状态变化 */
+#toggleMusicBtn:hover:not(.muted) {
+    background-color: #0056b3;
+}
+
+#toggleMusicBtn:hover.muted {
+    background-color: #5a6268;
+}
+
+#endGameBtn {
+    background-color: #dc3545;
+}
+
+#endGameBtn:hover {
+    background-color: #c82333;
+}
+
+#restartBtn:hover {
+    background-color: #218838;
+}
+
+#toggleMusicBtn {
+    position: fixed;
+    top: 2vw;
+    right: 2vw;
+    z-index: 20;
+    background-color: #007bff;
+    color: white;
+    font-size: 3vw;
+    width: 11vw;
+    height: 11vw;
+    line-height: 9vw;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+#toggleMusicBtn:hover {
+    background-color: #0056b3;
+}
+
+/* 响应式适配小屏设备 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 6vw;
+    }
+
+    .panel {
+        padding: 4vw;
+        font-size: 3.5vw;
+    }
+
+    #scoreBoard,
+    #timer {
+        font-size: 4vw;
+    }
+
+    .clickImage {
+        width: 18vw;
+        height: 18vw;
+    }
+}
